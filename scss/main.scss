@@ -15,7 +15,7 @@ body {
   color: #fff;
   height: 100;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Titillium Web", sans-serif;
   line-height: 1.5;
 }
 
@@ -26,13 +26,16 @@ h3 {
   font-weight: 400;
 
   &.lg-heading {
-    font-size: 6rem;
+    font-size: 10rem;
+  }
+
+  .text-secondary {
+    color: $secondary-color;
   }
 
   &.sm-heading {
     margin-bottom: 2rem;
-    padding: 02rem 1rem;
-    background: rgba(lighten($color: $primary-color, $amount: 2), 0.5);
+    font-size: 4rem;
   }
 }
 
@@ -45,6 +48,24 @@ header {
   position: fixed;
   z-index: 2;
   width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.text-ternary {
+  color: #3f0b3f;
+}
+
+.text-orange {
+  color: rgb(179, 255, 0);
+  font-weight: 1500;
+  font-size: x-large;
+}
+.text-black {
+  color: black;
+  font-weight: 900;
 }
 
 main {
@@ -69,3 +90,80 @@ main {
     }
   }
 }
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "interests interests interests"
+    "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr);
+
+  .bio-image {
+    grid-area: bioimage;
+    width: 25rem;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  .interests {
+    grid-area: interests;
+    font-size: 4rem;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 3rem;
+  }
+
+  .job-1 {
+    grid-area: job1;
+    font-size: 2rem;
+  }
+
+  .job-2 {
+    grid-area: job2;
+    font-size: 2rem;
+  }
+
+  .job-3 {
+    grid-area: job3;
+    font-size: 2rem;
+  }
+
+  .job {
+    background: lighten($color: $primary-color, $amount: 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+    text-align: center;
+    &:hover {
+      background: darken($primary-color, $amount: 10);
+      color: black;
+    }
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: #900;
+    }
+  }
+}
+
+@import "mobile";
